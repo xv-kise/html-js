@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <title>¢urr€₦¢¥ ¢¤₦v€r₮€r</title>
+</head>
+<body>
+    <h2>¢urr€₦¢¥ ¢¤₦v€r₮€r</h2>
+    <p>
+    アルファベットの文をできる限り通貨記号に変換します<br>
+    例: "Hello, World!" → "H€₺₺¤, ₩¤r₺₫!.
+    </p>
+    
+    <p>
+    <b>変換前</b><br>
+    <textarea cols="50" rows="5" type="text" id="textbox1"></textarea>
+    <button type="button" onclick="changelabel(money());">変換</button>
+    </p>
+
+    <p>
+    <b>変換後</b>
+    <div id="display">
+        ...
+        </div>
+    </p>
+    <script>
+        var box1 = document.getElementById("textbox1");
+        var alphabet_money = 
+        {"A":"₳", "B":"฿", "C":"¢", "D":"₫", "E":"€", "F":"₣", "G":"₲", "K":"₭", "L":"₺",
+         "M":"₥", "N":"₦", "O":"¤", "P":"₽", "S":"$", "T":"₮", "W":"₩", "Y":"¥"}
+        
+        function changelabel(next){
+            var text = document.getElementById("display");
+            text.innerHTML = next;
+        }
+        function money(){
+            const original = box1.value;
+            var result = [];
+            for (var loop = 0; loop < original.length; loop++) {
+                i = original.charAt(loop);
+                if (i == "\n") {
+                    i = "<br>"
+                }
+                if (i.toUpperCase() in alphabet_money) {
+                    i = alphabet_money[i.toUpperCase()];
+                }
+                result.push(i);
+            }
+            console.log(result);
+            result = result.join("");
+            return result;
+        }
+    </script>
+</body>
