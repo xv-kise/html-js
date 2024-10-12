@@ -36,17 +36,17 @@
             const original = box1.value;
             var result = [];
             for (var loop = 0; loop < original.length; loop++) {
-                i = original.charAt(loop); //その文字の変換先が入る変数
+                i = original.charAt(loop); //入力をループごと順に1文字ずつ取得し、通貨記号などに変換出来るなら変換する変数
                 if (i == "\n") {
                     i = "<br>"
                 }
                 if (i.toUpperCase() in alphabet_money) {
                     i = alphabet_money[i.toUpperCase()];
                 }
-                result.push(i);
+                result.push(i); //加工後の文字が1文字ずつ入るリスト
             }
-            console.log(result);
-            result = result.join("");
+            console.log(result); //debug
+            result = result.join(""); //リストを文字列に変換
             return result;
         }
     </script>
