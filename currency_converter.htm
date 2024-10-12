@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--HTML初心者が書いた-->
 <head>
     <title>¢urr€₦¢¥ ¢¤₦v€r₮€r</title>
 </head>
@@ -12,7 +13,7 @@
     <p>
     <b>変換前</b><br>
     <textarea cols="50" rows="5" type="text" id="textbox1"></textarea>
-    <button type="button" onclick="changelabel(money());">変換</button>
+    <button type="button" onclick="changelabel(conv_currency());">変換</button>
     </p>
 
     <p>
@@ -23,19 +24,19 @@
     </p>
     <script>
         var box1 = document.getElementById("textbox1");
-        var alphabet_money = 
+        var alphabet_money = //アルファベットに対応する通貨記号一覧（ここになければそのまま返される）
         {"A":"₳", "B":"฿", "C":"¢", "D":"₫", "E":"€", "F":"₣", "G":"₲", "K":"₭", "L":"₺",
          "M":"₥", "N":"₦", "O":"¤", "P":"₽", "S":"$", "T":"₮", "W":"₩", "Y":"¥"}
         
-        function changelabel(next){
+        function changelabel(next){ //ラベルを変える関数
             var text = document.getElementById("display");
             text.innerHTML = next;
         }
-        function money(){
+        function conv_currency(){ //通貨記号を変換する関数
             const original = box1.value;
             var result = [];
             for (var loop = 0; loop < original.length; loop++) {
-                i = original.charAt(loop);
+                i = original.charAt(loop); //その文字の変換先が入る変数
                 if (i == "\n") {
                     i = "<br>"
                 }
